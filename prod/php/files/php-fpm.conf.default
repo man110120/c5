@@ -1,0 +1,32 @@
+;[global]
+
+;[www]
+;user = nobody
+;group = nobody
+;listen = 127.0.0.1:9000
+ 
+;pm = dynamic
+;pm.max_children = 5
+;pm.start_servers = 2
+;pm.min_spare_servers = 1
+;pm.max_spare_servers = 3
+
+[global]
+;error_log = /data/webserver/php/php-fpm.log
+ 
+ 
+[www]
+user = www
+group = www
+listen = /data/webserver/php-fpm.sock
+listen.owner = www
+listen.group = www
+listen.mode = 0660
+ 
+pm = dynamic
+pm.max_children = 50
+pm.start_servers = 20
+pm.min_spare_servers = 10
+pm.max_spare_servers = 30
+ 
+pm.max_requests = 50000
